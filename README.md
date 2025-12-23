@@ -40,12 +40,3 @@ Energy_Resilience_Engine/
 └── docker-compose.yml       # Infrastructure Orchestration
 
 
-## 👨‍💻 Professional Profile
-
-* **Current Status**: Computer Systems Engineering Student at **Universidad Lamar** (Expected 2026).
-* **Specialization**: Data Analyst (Python, SQL, Pandas) via **TripleTen Bootcamp** (2025).
-* **Location**: Based in Mexico (Available for Remote Global Roles).
-* **Technical Background**:
-    * **FlexTronics**: 8 months of experience in technical operations and industrial workflows.
-    * **Nubir**: Developed an automated support chatbot during a professional internship.
-* **Core Focus**: Building data-driven tools that bridge the gap between complex backend engineering and actionable business intelligence.
