@@ -1,0 +1,29 @@
+# --- Python / Django ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+db.sqlite3
+backend/api/migrations/00*.py
+
+# --- Node / Frontend (General) ---
+node_modules/
+dist/
+build/
+.eslintcache
+
+# --- Environment & Secrets ---
+.env
+*.env
+backend/.env
+frontend/.env
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+.vscode/
+
+# --- Docker ---
+.docker/
