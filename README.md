@@ -38,9 +38,9 @@ docker-compose up -d
 
 ### 2. Backend API (Django)
 cd backend
-# Optional: Create and activate virtual environment
-# python -m venv venv
-# source venv/bin/activate  # On Windows: venv\Scripts\activate
+ **Optional: Create and activate virtual environment**
+ **python -m venv venv**
+ **source venv/bin/activate  On Windows: venv\Scripts\activate**
 
 pip install -r requirements.txt
 python manage.py migrate
