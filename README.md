@@ -27,6 +27,34 @@ The application is built on a modular **Full-Stack** architecture optimized for 
 3. **Generation Mix Detail:** A granular auditing tool providing a full breakdown of operational status and resource distribution.
 4. **Resilience Center:** A decision-support module monitoring system health and active resilience protocols.
 
+## 🚀 Getting Started: Running the Project
+
+Follow these steps to get the full stack up and running in your local environment.
+
+### 1. Infrastructure (Database)
+Ensure you have **Docker** installed. This command starts the PostgreSQL database and any base services in the background.
+bash:
+docker-compose up -d
+
+### 2. Backend API (Django)
+cd backend
+# Optional: Create and activate virtual environment
+# python -m venv venv
+# source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+
+### 3. Frontend Dashboard (React + Vite)
+cd frontend
+npm install
+npm run dev
+
+### 4. Data Ingestion (Real-time Pipeline)
+python data_pipeline/fetch_real_data.py
+
+
 ## 📂 Project Structure
 ```text
 Energy_Resilience_Engine/
