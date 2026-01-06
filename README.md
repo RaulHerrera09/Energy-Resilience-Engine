@@ -31,29 +31,51 @@ The application is built on a modular **Full-Stack** architecture optimized for 
 
 Follow these steps to get the full stack up and running in your local environment.
 
-### 1. Infrastructure (Database)
-Ensure you have **Docker** installed. This command starts the PostgreSQL database and any base services in the background.
-bash:
+### 1. Prerequisites
+Ensure you have Docker, Python 3.x, and Node.js installed
+
+### 2. Environment Configuration
+Create a .env file in the root directory and configure your credentials:
+```bash
+# Database Config
+DB_NAME=energy_db
+DB_USER=postgres
+DB_PASSWORD=your_secure_password
+
+# External API
+ENTSOE_API_KEY=your_entsoe_token_here
+
+# Django Security
+SECRET_KEY=your_django_secret_key
+DEBUG=True
+```
+
+### 3. Execution Commands
+Infrastructure:
+```bash
 docker-compose up -d
+```
 
-### 2. Backend API (Django)
+### 4. Backend Setup (Django)
+```bash
 cd backend
- **Optional: Create and activate virtual environment**
- **python -m venv venv**
- **source venv/bin/activate  On Windows: venv\Scripts\activate**
-
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
+```
 
 ### 3. Frontend Dashboard (React + Vite)
+```bash
 cd frontend
 npm install
 npm run dev
-
+```
 ### 4. Data Ingestion (Real-time Pipeline)
+```bash
 python data_pipeline/fetch_real_data.py
-
+```
 
 ## 📂 Project Structure
 ```text
@@ -66,5 +88,23 @@ Energy_Resilience_Engine/
 │   ├── src/components/      # Interactive Recharts UI
 │   └── App.jsx              # Main Analytical Logic
 └── docker-compose.yml       # Infrastructure Orchestration
+```
+
+## 🔮 Future Improvements
+
+To further evolve EnergyEngine into a production-grade predictive tool, the following features are planned:
+
+* **ML-Powered Forecasts:** Integrate `Scikit-learn` models to transition from historical analysis to predictive analytics, forecasting the Resilience Index 24 hours in advance.
+* **Expanded Market Coverage:** Scale the ETL pipeline architecture to include additional European energy markets beyond the initial DE, FR, and ES territories.
+* **Real-time Alerting System:** Implement an automated notification module (via Email or Slack API) to alert stakeholders when the Resilience Score drops below critical safety thresholds.
+* **Cloud Migration:** Transition the current local Docker orchestration to a production-ready cloud environment using **AWS (EC2/RDS)** or **Hetzner Cloud** for global accessibility.
+
+
+## 🧠 About the Developer
+I am a Computer Systems Engineering student at Universidad Lamar (Expected 2026) specializing in the intersection of Data Analysis and Software Engineering. I build tools that transform raw, complex data into actionable business intelligence.
+
+**Portfolio**: raulherrera09.github.io/RaulHerrera.github.io/
+
+**LinkedIn**: @raulherreradelgadillo
 
 

@@ -4,16 +4,33 @@ from entsoe import EntsoePandasClient
 from sqlalchemy import create_engine
 from entsoe.exceptions import NoMatchingDataError
 from datetime import datetime, timedelta
+from pathlib import Path
+from dotenv import load_dotenv
 import pytz
 import traceback
 
-API_TOKEN = '4af414aa-5e34-41aa-9e47-30cb1795964f'
-DB_URL = "postgresql://admin:secret_password@127.0.0.1:5432/energy_resilience"
+BASE_DIR = Path(__file__).resolve().parent.parent
+env_path = BASE_DIR / 'backend' / '.env'
+
+load_dotenv(dotenv_path=env_path)
+
+API_TOKEN = os.getenv('ENTSOE_API_KEY')
+DB_USER = os.getenv('DB_USER', 'admin')
+DB_PASSWORD = os.getenv('DB_PASSWORD', 'secret_password')
+DB_HOST = os.getenv('DB_HOST', '127.0.0.1')
+DB_PORT = os.getenv('DB_PORT', '5432')
+DB_NAME = os.getenv('DB_NAME', 'energy_resilience')
+
+DB_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 COUNTRIES = ['DE', 'FR', 'ES', 'GB']
 
 
 def fetch_and_store_energy_data(area_code):
     print(f"\n--- Starting Data Ingestion for Market: {area_code} ---")
+
+    if not API_TOKEN:
+        print(f"❌ ERROR: API_TOKEN no encontrado en el archivo .env.")
+        return
 
     client = EntsoePandasClient(api_key=API_TOKEN)
     engine = create_engine(DB_URL)

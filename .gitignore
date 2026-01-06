@@ -6,7 +6,7 @@ __pycache__/
 env/
 venv/
 db.sqlite3
-backend/api/migrations/00*.py
+
 
 # --- Node / Frontend (General) ---
 node_modules/
@@ -17,8 +17,10 @@ build/
 # --- Environment & Secrets ---
 .env
 *.env
+!.env.example
 backend/.env
 frontend/.env
+
 
 # --- OS Specific ---
 .DS_Store
@@ -27,3 +29,10 @@ Thumbs.db
 
 # --- Docker ---
 .docker/
+
+# Logs
+*.log
+npm-debug.log*
+
+# SQLite journal 
+db.sqlite3-journal

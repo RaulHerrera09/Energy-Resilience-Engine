@@ -5,3 +5,5 @@ psycopg2-binary
 pandas
 sqlalchemy
 entsoe-py
+python-dotenv
+scikit-learn
